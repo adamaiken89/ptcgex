@@ -1,0 +1,25 @@
+<.header>
+  Listing Cards
+  <:actions>
+    <.link href={~p"/cards/new"}>
+      <.button>New Card</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="cards" rows={@cards} row_click={&JS.navigate(~p"/cards/#{&1}")}>
+  <:col :let={card} label="Name">{card.name}</:col>
+  <:col :let={card} label="Collector card number">{card.collector_card_number}</:col>
+  <:col :let={card} label="Sort code">{card.sort_code}</:col>
+  <:action :let={card}>
+    <div class="sr-only">
+      <.link navigate={~p"/cards/#{card}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/cards/#{card}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={card}>
+    <.link href={~p"/cards/#{card}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

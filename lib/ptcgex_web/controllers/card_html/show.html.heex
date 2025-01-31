@@ -1,0 +1,17 @@
+<.header>
+  Card {@card.id}
+  <:subtitle>This is a card record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/cards/#{@card}/edit"}>
+      <.button>Edit card</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Name">{@card.name}</:item>
+  <:item title="Collector card number">{@card.collector_card_number}</:item>
+  <:item title="Sort code">{@card.sort_code}</:item>
+</.list>
+
+<.back navigate={~p"/cards"}>Back to cards</.back>

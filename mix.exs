@@ -82,7 +82,9 @@ defmodule Ptcgex.MixProject do
       ],
       db: ["ecto.migrate"],
       s: ["phx.server"],
-      r: ["phx.routes"]
+      r: ["phx.routes"],
+      h: ["help --search phx"],
+      ss: ["run priv/repo/seeds.exs"]
     ]
   end
 end
