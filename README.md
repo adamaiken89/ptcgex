@@ -25,11 +25,11 @@ mix phx.gen.schema Data.Pack packs name:text theme:text sort_code:text
 
 mix phx.gen.html \
   Data \
-Card \
-cards \
-name:text \
-collector_card_number:text \
-sort_code:text
+  Card \
+  cards \
+  name:text \
+  collector_card_number:text \
+  sort_code:text
 ``
 
 ##
