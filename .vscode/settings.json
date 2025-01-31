@@ -1,0 +1,12 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.sortJSON": "always",
+    "source.organizeImports": "always"
+  },
+  "cSpell.words": [
+    "ecto",
+    "esbuild",
+    "mailgun",
+    "ptcgex"
+  ]
+}

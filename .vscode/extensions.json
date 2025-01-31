@@ -1,0 +1,21 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "GitHub.copilot-chat",
+    "GitHub.copilot",
+    "JannisX11.batch-rename-extension",
+    "jeff-hykin.polacode-2019",
+    "mrmlnc.vscode-duplicate",
+    "MS-vsliveshare.vsliveshare",
+    "orta.vscode-jest",
+    "quicktype.quicktype",
+    "richie5um2.vscode-sort-json",
+    "SonarSource.sonarlint-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "usernamehw.errorlens",
+    "yzhang.markdown-all-in-one",
+    "jakebecker.elixir-ls"
+  ]
+}

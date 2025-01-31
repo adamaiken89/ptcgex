@@ -79,7 +79,10 @@ defmodule Ptcgex.MixProject do
         "tailwind ptcgex --minify",
         "esbuild ptcgex --minify",
         "phx.digest"
-      ]
+      ],
+      db: ["ecto.migrate"],
+      s: ["phx.server"],
+      r: ["phx.routes"]
     ]
   end
 end
