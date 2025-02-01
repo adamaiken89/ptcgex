@@ -1,0 +1,24 @@
+<.header>
+  Listing Trades
+  <:actions>
+    <.link href={~p"/trades/new"}>
+      <.button>New Trade</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="trades" rows={@trades} row_click={&JS.navigate(~p"/trades/#{&1}")}>
+  <:col :let={trade} label="Friend">{trade.friend_id}</:col>
+  <:col :let={trade} label="Card">{trade.card_id}</:col>
+  <:action :let={trade}>
+    <div class="sr-only">
+      <.link navigate={~p"/trades/#{trade}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/trades/#{trade}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={trade}>
+    <.link href={~p"/trades/#{trade}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

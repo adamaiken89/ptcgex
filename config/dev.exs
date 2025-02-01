@@ -2,8 +2,8 @@ import Config
 
 # Configure your database
 config :ptcgex, Ptcgex.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "tszyeungwan",
+  password: "",
   hostname: "localhost",
   database: "ptcgex_dev",
   stacktrace: true,

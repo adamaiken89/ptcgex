@@ -1,4 +1,5 @@
 defmodule PtcgexWeb.Router do
+  alias Ptcgex.Exchange.Trade
   use PtcgexWeb, :router
 
   pipeline :browser do
@@ -18,6 +19,7 @@ defmodule PtcgexWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    resources "/trades", TradeController
   end
 
   # Other scopes may use custom stacks.

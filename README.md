@@ -39,19 +39,19 @@ mix phx.gen.html \
   pack_id:references:packs \
   sort_code:text
 
-
 mix phx.gen.html \
   Exchange \
   Trade \
   trades \
   friend_id:text \
-  collector_card_number:text
+  card_id:references:cards
 
 mix phx.gen.schema \
-  Exchange.Offer \
-  offers \
-  collector_card_number:text
-  trade_id:references:trades
+  Exchange.TradeOffer \
+  trade_offers \
+  collector_card_number:text \
+  trade_id:references:trades \
+  card_id:references:cards
 ``
 
 ##

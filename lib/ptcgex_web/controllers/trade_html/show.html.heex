@@ -1,0 +1,15 @@
+<.header>
+  Trade {@trade.id}
+  <:subtitle>This is a trade record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/trades/#{@trade}/edit"}>
+      <.button>Edit trade</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Friend">{@trade.friend_id}</:item>
+</.list>
+
+<.back navigate={~p"/trades"}>Back to trades</.back>

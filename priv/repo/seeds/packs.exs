@@ -1,10 +1,9 @@
-
 alias Ptcgex.Repo
 alias Ptcgex.Data.Pack
 
 now = DateTime.utc_now() |> DateTime.truncate(:second)
 
-Repo.insert_all(Pack, [
+packs = [
   %{
     name: "A1 Mewtwo",
     code: "A1 Mewtwo",
@@ -44,4 +43,7 @@ Repo.insert_all(Pack, [
   },
   %{name: "A2", code: "A2", sort_code: "A2", inserted_at: now, updated_at: now},
   %{name: "PROMO-A", code: "PROMO-A", sort_code: "PROMO-A", inserted_at: now, updated_at: now}
-])
+]
+
+Pack
+|> Repo.insert_all(packs)

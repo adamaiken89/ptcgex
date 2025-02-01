@@ -6,10 +6,13 @@ defmodule Ptcgex.Data.Card do
     field :name, :string
     field :collector_card_number, :string
     field :sort_code, :string
-    field :rarity_id, :id
-    field :pack_id, :id
+    # field :rarity_id, :id
+    # field :pack_id, :id
 
     timestamps(type: :utc_datetime)
+
+    belongs_to :pack, Ptcgex.Data.Pack
+    belongs_to :rarity, Ptcgex.Data.Rarity
   end
 
   @doc false

@@ -11,12 +11,13 @@
     "mrmlnc.vscode-duplicate",
     "MS-vsliveshare.vsliveshare",
     "orta.vscode-jest",
+    "pantajoe.vscode-elixir-credo",
     "phoenixframework.phoenix",
     "quicktype.quicktype",
     "richie5um2.vscode-sort-json",
     "SonarSource.sonarlint-vscode",
     "streetsidesoftware.code-spell-checker",
     "usernamehw.errorlens",
-    "yzhang.markdown-all-in-one"
+    "yzhang.markdown-all-in-one",
   ]
 }

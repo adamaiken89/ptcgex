@@ -1,10 +1,9 @@
-alias Ptcgex.Data.Card
-alias Ptcgex.Data.Pack
-alias Ptcgex.Data.Rarity
+alias Ptcgex.Data.{Card, Pack, Rarity}
 alias Ptcgex.Repo
 
 now = DateTime.utc_now() |> DateTime.truncate(:second)
-cards_data = [
+
+cards = [
   %{
     name: "Bulbasaur",
     sort_code: "Bulbasaur",
@@ -2581,19 +2580,26 @@ cards_data = [
   }
 ]
 
-
 packs = Repo.all(Pack)
 rarities = Repo.all(Rarity)
-Repo.insert_all(Card, Enum.map(cards_data, fn card -> %{
-  name: card.name,
-  sort_code: card.sort_code,
-  collector_card_number: card.collector_card_number,
-  rarity_id: Enum.find_value(rarities, fn rarity ->
-    if rarity.name == card.rarity, do: rarity.id
-  end),
-  pack_id: Enum.find_value(packs, fn pack ->
-    if pack.name == card.pack, do: pack.id
-  end),
-  inserted_at: card.inserted_at,
-  updated_at: card.updated_at
-} end))
+
+transform_cards = fn card ->
+  %{
+    name: card.name,
+    sort_code: card.sort_code,
+    collector_card_number: card.collector_card_number,
+    rarity_id:
+      Enum.find_value(rarities, fn rarity ->
+        if rarity.name == card.rarity, do: rarity.id
+      end),
+    pack_id:
+      Enum.find_value(packs, fn pack ->
+        if pack.name == card.pack, do: pack.id
+      end),
+    inserted_at: card.inserted_at,
+    updated_at: card.updated_at
+  }
+end
+
+Card
+|> Repo.insert_all(cards |> Enum.map(transform_cards))

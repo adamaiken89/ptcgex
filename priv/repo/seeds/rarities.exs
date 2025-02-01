@@ -3,7 +3,7 @@ alias Ptcgex.Data.Rarity
 
 now = DateTime.utc_now() |> DateTime.truncate(:second)
 
-Repo.insert_all(Rarity, [
+rarities = [
   %{
     name: "♢",
     sort_code: "♢",
@@ -69,4 +69,7 @@ Repo.insert_all(Rarity, [
     updated_at: now
   },
   %{name: "", sort_code: "", code: "na", trading_tokens: nil, inserted_at: now, updated_at: now}
-])
+]
+
+Rarity
+|> Repo.insert_all(rarities)
