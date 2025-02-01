@@ -3,11 +3,14 @@ defmodule Ptcgex.Repo.Migrations.CreateRarities do
 
   def change do
     create table(:rarities) do
-      add :name, :text, null: false
-      add :sort_code, :text, null: false
-      add :can_trade, :boolean, default: false, null: false
+      add :name, :text
+      add :code, :text
+      add :sort_code, :text
+      add :trading_tokens, :integer
 
       timestamps(type: :utc_datetime)
     end
+
+    create unique_index(:rarities, [:code])
   end
 end

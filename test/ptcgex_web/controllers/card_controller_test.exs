@@ -3,16 +3,8 @@ defmodule PtcgexWeb.CardControllerTest do
 
   import Ptcgex.DataFixtures
 
-  @create_attrs %{
-    name: "some name",
-    collector_card_number: "some collector_card_number",
-    sort_code: "some sort_code"
-  }
-  @update_attrs %{
-    name: "some updated name",
-    collector_card_number: "some updated collector_card_number",
-    sort_code: "some updated sort_code"
-  }
+  @create_attrs %{name: "some name", collector_card_number: "some collector_card_number", sort_code: "some sort_code"}
+  @update_attrs %{name: "some updated name", collector_card_number: "some updated collector_card_number", sort_code: "some updated sort_code"}
   @invalid_attrs %{name: nil, collector_card_number: nil, sort_code: nil}
 
   describe "index" do

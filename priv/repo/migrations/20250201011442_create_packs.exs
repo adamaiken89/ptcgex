@@ -3,11 +3,13 @@ defmodule Ptcgex.Repo.Migrations.CreatePacks do
 
   def change do
     create table(:packs) do
-      add :name, :text, null: false
-      add :sort_code, :text, null: false
-      add :theme, :text, null: false
+      add :name, :text
+      add :code, :text
+      add :sort_code, :text
 
       timestamps(type: :utc_datetime)
     end
+
+    create unique_index(:packs, [:code])
   end
 end

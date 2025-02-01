@@ -20,16 +20,38 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 ## Commands
 
 ```bash
-mix phx.gen.schema Data.Rarity rarities name:text sort_code:text can_trade:boolean
-mix phx.gen.schema Data.Pack packs name:text theme:text sort_code:text
+mix phx.gen.schema \
+  Data.Pack \
+  packs \
+  name:text code:text:unique sort_code:text
+mix phx.gen.schema \
+  Data.Rarity \
+  rarities \
+  name:text code:text:unique sort_code:text trading_tokens:integer
 
 mix phx.gen.html \
   Data \
   Card \
   cards \
   name:text \
-  collector_card_number:text \
+  collector_card_number:text:unique \
+  rarity_id:references:rarities \
+  pack_id:references:packs \
   sort_code:text
+
+
+mix phx.gen.html \
+  Exchange \
+  Trade \
+  trades \
+  friend_id:text \
+  collector_card_number:text
+
+mix phx.gen.schema \
+  Exchange.Offer \
+  offers \
+  collector_card_number:text
+  trade_id:references:trades
 ``
 
 ##

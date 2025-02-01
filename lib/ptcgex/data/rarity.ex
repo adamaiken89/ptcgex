@@ -3,9 +3,10 @@ defmodule Ptcgex.Data.Rarity do
   import Ecto.Changeset
 
   schema "rarities" do
+    field :code, :string
     field :name, :string
     field :sort_code, :string
-    field :can_trade, :boolean, default: false
+    field :trading_tokens, :integer
 
     timestamps(type: :utc_datetime)
   end
@@ -13,7 +14,8 @@ defmodule Ptcgex.Data.Rarity do
   @doc false
   def changeset(rarity, attrs) do
     rarity
-    |> cast(attrs, [:name, :sort_code, :can_trade])
-    |> validate_required([:name, :sort_code, :can_trade])
+    |> cast(attrs, [:name, :code, :sort_code, :trading_tokens])
+    |> validate_required([:name, :code, :sort_code, :trading_tokens])
+    |> unique_constraint(:code)
   end
 end
